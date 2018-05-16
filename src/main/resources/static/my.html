@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+<body>
+    <input value="提交" type="button" id="tj">
+    <input value="删除" id="delete" type="button">
+    <input value="查询" id="get" type="button">
+    <input value="更新" id="put" type="button">
+</body>
+<script>
+    $("#tj").click(function () {
+        var data = {"name":"ydw","age":18};
+        $.ajax({
+            type:'post',
+            data:JSON.stringify(data),
+            contentType:'application/json',
+            url:'/user',
+            success:function (res) {
+                alert(res);
+            }
+        })
+    });
+    $("#delete").click(function () {
+        $.ajax({
+            type:'delete',
+            url:'/user/AWNnyP0pAbqHoCcSqES_',
+            success:function (res) {
+                alert(res);
+            }
+        })
+    })
+    $("#get").click(function () {
+        $.ajax({
+            type:'get',
+            url:'/user/AWNnyP0pAbqHoCcSqES_',
+            success:function (res) {
+                alert(res);
+            }
+        })
+    })
+    $("#put").click(function () {
+        var data = {"name":"ydw","age":20}
+        $.ajax({
+            type:'put',
+            data:JSON.stringify(data),
+            contentType:'application/json',
+            url:'/user',
+            success:function (res) {
+                alert(res);
+            }
+        })
+    })
+</script>
+</html>
